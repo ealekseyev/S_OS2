@@ -1,0 +1,1 @@
+typedef unsigned short size_t;

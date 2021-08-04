@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.asm": "cpp",
+        "ports.h": "c"
+    }
+}

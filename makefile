@@ -8,7 +8,7 @@ del_fetch:
 git_push make/git_push.sh:
 	sh make/git_push.sh $(COMMIT)
 build:
-	nasm -f elf32 kernel_launch.asm -o obj/kernel_launch.o
+	nasm -f elf32 kernel_launch.s -o obj/kernel_launch.o
 	gcc -m32 -c kernel.c -o obj/kernel.o
 	ld -m elf_i386 -T link.ld -o boot/$(KERNEL) obj/kernel_launch.o obj/kernel.o
 run_intel:
