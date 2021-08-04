@@ -14,8 +14,3 @@ load_idt:
 	lidt [edx]
 	sti
 	ret
-
-// launches keyboard_handler_main in c
-kb_handler:                 
-	call kb_int_handler
-	iretd
