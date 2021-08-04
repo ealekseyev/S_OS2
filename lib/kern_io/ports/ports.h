@@ -1,3 +1,5 @@
+#ifndef _PORTS_H_
+#define _PORTS_H_
 #include "../../types.h"
 #include "../screen.h"
 //#include "ports_io.s"
@@ -110,3 +112,4 @@ void kern_int_handler(void) __interrupt__((attribute)){
 
 	}
 }*/
+#endif

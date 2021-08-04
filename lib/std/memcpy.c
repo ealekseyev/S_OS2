@@ -1,3 +1,5 @@
+#ifndef _MEMCPY_C_
+#define _MEMCPY_C_
 #include "stddef.h"
 
 void* memcpy (void *dest, const void *src, size_t len) {
@@ -7,3 +9,5 @@ void* memcpy (void *dest, const void *src, size_t len) {
     *d++ = *s++;
   return dest;
 }
+
+#endif

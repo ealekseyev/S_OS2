@@ -15,7 +15,7 @@ for val in ${ASM_LINKLIST[@]}; do
     base_path=$(echo $val | cut -c 1-$suffix)
     base_name=$(echo $base_path | rev | cut -d'/' -f-1 | rev)
     echo "compiling $base_name.s"
-    #nasm -f elf32 "$base_path.s" -o obj/"$base_name.o"
+    nasm -f elf32 "$base_path.s" -o obj/"$base_name.o"
 done
 gcc -m32 -c kernel.c -o obj/kernel.o -w
 ld -m elf_i386 -T link.ld -o boot/$1 obj/*.o

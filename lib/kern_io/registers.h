@@ -1,6 +1,6 @@
-#include "../types.h"
 #ifndef _REGISTERS_H_
 #define _REGISTERS_H_
+#include "../types.h"
 
 typedef struct {
     // data segment selector
