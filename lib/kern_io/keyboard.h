@@ -28,9 +28,8 @@ void keyboard_init(void) {
     add_interrupt_mask(0xFD);
 }
 
-// TODO: iffy key buffer
-void __attribute__((__interrupt__)) keyboard_handler(void) {
-	// write EOI
+void passfunc(void) {
+    // write EOI
 	port_write(0x20, 0x20);
 
 	uint8_t status = port_read(KEYBOARD_STATUS_PORT);
@@ -49,7 +48,12 @@ void __attribute__((__interrupt__)) keyboard_handler(void) {
         available_bytes++;
 	}
 }
-
+// TODO: iffy key buffer
+//__attribute__((__interrupt__)) 
+void keyboard_handler(void) {
+	passfunc();
+    __asm__("iret");
+}
 // user callable functions 
 char keyboard_read() {
     if(available_bytes > 0) {

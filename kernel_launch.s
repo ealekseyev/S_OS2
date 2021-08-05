@@ -15,7 +15,7 @@ section .text
 global start
 extern kmain	                 ;kmain is defined in the c file
 
-start:
+global _start:
     cli 			        ;block interrupts
     mov esp, stack_space	;set stack pointer
     call kmain

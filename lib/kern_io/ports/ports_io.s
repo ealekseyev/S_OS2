@@ -1,3 +1,4 @@
+global read_port, write_port, load_idt
 read_port:
 	mov edx, [esp + 4]
 	in al, dx	

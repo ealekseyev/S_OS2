@@ -9,7 +9,7 @@ strindex() {
   x="${1%%$2*}"
   [[ "$x" = "$1" ]] && echo -1 || echo "${#x}"
 }
-
+rm obj/*.o
 for val in ${ASM_LINKLIST[@]}; do
     suffix=$(strindex $val ".s")
     base_path=$(echo $val | cut -c 1-$suffix)
@@ -17,5 +17,6 @@ for val in ${ASM_LINKLIST[@]}; do
     echo "compiling $base_name.s"
     nasm -f elf32 "$base_path.s" -o obj/"$base_name.o"
 done
-gcc -m32 -c kernel.c -o obj/kernel.o -w
+#gcc -m32 -c -ffreestanding kernel.c obj/*.o -o boot/kernel -w
+gcc -m32 -c -ffreestanding kernel.c obj/*.o -o obj/kernel.o -w
 ld -m elf_i386 -T link.ld -o boot/$1 obj/*.o

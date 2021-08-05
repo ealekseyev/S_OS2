@@ -2,7 +2,6 @@
 #define _PORTS_H_
 #include "../../types.h"
 #include "../screen.h"
-//#include "ports_io.s"
 
 #define IDT_SIZE 256 // 256 idt gates
 
